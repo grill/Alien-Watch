@@ -32,7 +32,7 @@ public class Field {
     
     public Random rand;
     
-    public Field(long seed) {
+    public Field() {
         chips = new int[9];
         ghosts = new Ghost[9];
         playerchips = new int[C_COUNT];
@@ -42,7 +42,7 @@ public class Field {
             ghosts[i] = new Ghost();
         }
 
-        rand = new Random(seed);
+        rand = new Random();
         
         ghosts[7].time=20;
         ghosts[4].time=30;
@@ -56,9 +56,9 @@ public class Field {
     
     private static Field instance;
     
-    public static Field init(long seed) {
+    public static Field init() {
         if(instance == null) {
-            instance = new Field(seed);
+            instance = new Field();
         }
         return instance;
         

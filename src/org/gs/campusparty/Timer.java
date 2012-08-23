@@ -1,8 +1,14 @@
 package org.gs.campusparty;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class Timer {
    private Handler mHandler = new Handler();
