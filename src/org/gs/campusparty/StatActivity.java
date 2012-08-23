@@ -14,6 +14,7 @@ import android.net.http.AndroidHttpClient;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class StatActivity extends Activity {
@@ -49,6 +50,8 @@ public class StatActivity extends Activity {
         if(t == null) {
             Log.w("a", "starting timer");
             t = new Timer();
+            t.layout = (LinearLayout) findViewById(R.id.fancylinearlayout);
+            t.context = getBaseContext();
             t.start();
         }
         

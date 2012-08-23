@@ -52,10 +52,11 @@ public class Timer {
 			for (Ghost g : field.ghosts) {
 				if (g.time > 0) {
 					g.step();
+				}else if(g.time == 0) {
+					ghostcount++;
 				} else {
 					g.chiplabel.setText("NO GHOST");
 					g.label.setText("");
-					ghostcount++;
 				}
 			}
 			if (FIELDS_UNTIL_YOU_DIE <= ghostcount) {
