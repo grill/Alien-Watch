@@ -12,6 +12,11 @@ public class Timer {
    
    private int timeUntilGhost = -1;
    
+   public static final int MIN_CHIP_TIME = 5;
+   public static final int MAX_CHIP_TIME = 10;
+   
+   private int timeUntilChip = -1;
+   
    
    public Timer() {
       field = Field.getSingleton();
@@ -21,6 +26,7 @@ public class Timer {
       public void run() {
           long millis = SystemClock.uptimeMillis();
           int nghost;
+          int nchip;
 
           //update time and textview
           for(Ghost g : field.ghosts) {
@@ -36,7 +42,27 @@ public class Timer {
                 nghost = field.rand.nextInt(9);
              }
              
+             field.ghosts[nghost].time = 40;
+             for(int i = 0; i < field.C_COUNT; i++) {
+                 field.ghosts[nghost].chips[i] = 0;
+             }
+             
+             for(int i = 3 + field.rand.nextInt(3); i >= 0; i--) {
+                 field.ghosts[nghost].chips[field.rand.nextInt(field.C_COUNT)] += 1;
+             }
+             
              timeUntilGhost = MIN_GHOST_TIME + field.rand.nextInt(MAX_GHOST_TIME-MIN_GHOST_TIME);
+          }
+          if(timeUntilChip >= 0) {
+              timeUntilChip -= 1;
+          } else {
+              nchip = field.rand.nextInt(9);
+              
+          }
+          
+          for(int i = 0; i < 9; i++) {
+             field.ghosts[i].label.setTextColor(Field.getColor(field.chips[i]));
+             field.ghosts[i].chiplabel.setTextColor(Field.getColor(field.chips[i]));
           }
           
 

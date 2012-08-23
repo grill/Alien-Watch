@@ -35,16 +35,22 @@ public class StatActivity extends Activity {
         f.ghosts[6].label = (TextView) findViewById(R.id.txtfield6time);
         f.ghosts[7].label = (TextView) findViewById(R.id.txtfield7time);
         f.ghosts[8].label = (TextView) findViewById(R.id.txtfield8time);
-        
+        f.ghosts[0].chiplabel = (TextView) findViewById(R.id.txtfield0chips);
+        f.ghosts[1].chiplabel = (TextView) findViewById(R.id.txtfield1chips);
+        f.ghosts[2].chiplabel = (TextView) findViewById(R.id.txtfield2chips);
+        f.ghosts[3].chiplabel = (TextView) findViewById(R.id.txtfield3chips);
+        f.ghosts[4].chiplabel = (TextView) findViewById(R.id.txtfield4chips);
+        f.ghosts[5].chiplabel = (TextView) findViewById(R.id.txtfield5chips);
+        f.ghosts[6].chiplabel = (TextView) findViewById(R.id.txtfield6chips);
+        f.ghosts[7].chiplabel = (TextView) findViewById(R.id.txtfield7chips);
+        f.ghosts[8].chiplabel = (TextView) findViewById(R.id.txtfield8chips);
+       
         if(t == null) {
             Timer t = new Timer();
             t.start();
         }
         
 
-        WifiP2pManager manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
-        Connector c = new Connector(manager, manager.initialize(this, getMainLooper(), null));
-        
         Intent intent = getIntent();
         ((TextView)findViewById(R.id.txtplayerdesc)).setText(intent.getExtras() == null ? "b" : "" + intent.getExtras().size());
         //intent.putExtra("FlutterTapId", "50360633ad5c85b82c74d27f");

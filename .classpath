@@ -3,10 +3,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="lib" path="lib/android.jar"/>
 	<classpathentry kind="lib" path="lib/gcm-server-src.jar"/>
 	<classpathentry kind="lib" path="lib/gcm-server.jar"/>
 	<classpathentry kind="lib" path="lib/gcm-src.jar"/>
 	<classpathentry kind="lib" path="lib/gcm.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

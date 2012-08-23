@@ -2,6 +2,8 @@ package org.gs.campusparty;
 
 import java.util.Random;
 
+import android.graphics.Color;
+
 
 public class Field {
     public static final int C_NONE = -1;
@@ -10,6 +12,17 @@ public class Field {
     public static final int C_GREEN = 2;
     public static final int C_YELLOW = 3;
     public static final int C_COUNT = 4;
+    
+    public static final int[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW};
+    public static final char[] names = {'R', 'B', 'G', 'Y'};
+    
+    public static int getColor(int i) {
+        if(i == -1) {
+            return Color.WHITE;
+        } else {
+            return colors[i];
+        }
+    }
     
     public int[] chips;
     public Ghost[] ghosts;
@@ -29,6 +42,8 @@ public class Field {
         
         ghosts[7].time=20;
         ghosts[4].time=30;
+        chips[1] = C_BLUE;
+        chips[3] = C_RED;
     }
     
     private static Field instance;
