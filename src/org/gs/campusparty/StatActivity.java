@@ -2,6 +2,7 @@ package org.gs.campusparty;
 
 import org.gs.campusparty.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -25,5 +26,10 @@ public class StatActivity extends Activity {
         
         Timer t = new Timer();
         t.start();
+        
+        Intent intent = getIntent();
+        if (intent.hasExtra("FlutterTapId")) {
+            String tapId = intent.getStringExtra("FlutterTapId");
+        }
     }
 }
