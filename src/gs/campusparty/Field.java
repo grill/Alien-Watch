@@ -31,7 +31,8 @@ public class Field {
         if(instance != null) {
             return instance;
         } else {
-            return new Field();
+            instance = new Field();
+            return instance;
         }
     }
 }

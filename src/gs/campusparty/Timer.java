@@ -2,6 +2,7 @@ package gs.campusparty;
 
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 
 public class Timer {
    private Handler mHandler = new Handler();
