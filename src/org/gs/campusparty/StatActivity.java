@@ -44,6 +44,7 @@ public class StatActivity extends Activity {
         f.ghosts[6].chiplabel = (TextView) findViewById(R.id.txtfield6chips);
         f.ghosts[7].chiplabel = (TextView) findViewById(R.id.txtfield7chips);
         f.ghosts[8].chiplabel = (TextView) findViewById(R.id.txtfield8chips);
+        f.playerchiplabel = (TextView) findViewById(R.id.txtplayerchips);
        
         if(t == null) {
             Log.w("a", "starting timer");
@@ -55,7 +56,6 @@ public class StatActivity extends Activity {
         Intent intent = getIntent();
         ((TextView)findViewById(R.id.txtplayerdesc)).setText(intent.getExtras() == null ? "b" : "" + intent.getExtras().size());
         //intent.putExtra("FlutterTapId", "50360633ad5c85b82c74d27f");
-        ((TextView)findViewById(R.id.txtfield1chips)).setText(intent.getAction());
         if (intent.hasExtra("FlutterTapId")) {
             tap(intent.getStringExtra("FlutterTapId"));
         }
@@ -80,8 +80,6 @@ public class StatActivity extends Activity {
     protected void onNewIntent(Intent intent) {
         // TODO Auto-generated method stub
         super.onNewIntent(intent);
-        ((TextView)findViewById(R.id.txtfield1chips)).setText(intent.getAction());
-        ((TextView)findViewById(R.id.txtfield2chips)).setText("blub");
 
         if (intent.hasExtra("FlutterTapId")) {
             tap(intent.getStringExtra("FlutterTapId"));
