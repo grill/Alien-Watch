@@ -106,7 +106,23 @@ public class StatActivity extends Activity {
                 Log.w("a", json);
                 JSONObject jo = new JSONObject(json);
                 fieldid = jo.getInt("lat");
-                Field.getSingleton().ghosts[fieldid].time = 30;
+                
+                Field f = Field.getSingleton();
+                if(f.chips[fieldid] != Field.C_NONE) {
+                    f.playerchips[f.chips[fieldid]] += 1;
+                    f.chips[fieldid] = Field.C_NONE;
+                }
+                if(f.ghosts[fieldid].time >= 0) {
+                    for(int i = 0; i < Field.C_COUNT; i++) {
+                        if(f.playerchips[i] >= f.ghosts[fieldid].chips[i]){
+                            f.playerchips[i] -= f.ghosts[fieldid].chips[i];
+                            f.ghosts[fieldid].chips[i] = 0;
+                        } else {
+                            f.ghosts[fieldid].chips[i] -= f.playerchips[i];
+                            f.playerchips[i] = 0;
+                        }
+                    }
+                }
                 
             } catch (IOException e) {
                 // TODO Auto-generated catch block

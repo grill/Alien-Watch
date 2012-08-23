@@ -31,12 +31,11 @@ public class Timer {
 
 	TextView txtend;
 	Button btnend;
-	
+
 	private long startTime;
 
 	public Timer() {
 		field = Field.getSingleton();
-		startTime = System.currentTimeMillis();
 	}
 
 	private Runnable mUpdateTimeTask = new Runnable() {
@@ -52,23 +51,16 @@ public class Timer {
 				if (g.time >= 0) {
 					g.step();
 				} else {
+					g.chiplabel.setText("NO GHOST");
+					g.label.setText("");
 					ghostcount++;
 				}
 			}
 			if (FIELDS_UNTIL_YOU_DIE <= ghostcount) {
-				txtend = new TextView(context);
-				layout.addView(txtend);
-				int seconds = (int)(System.currentTimeMillis() - startTime)/1000;
-				int minutes = seconds/60;
-				txtend.setText("You Lost!!\n You survived for: " + minutes + ":" + (seconds - (minutes*60)) + "!");
-				btnend = new Button(context);
-				layout.addView(btnend);
-				btnend.setText("Restart");
-				btnend.setOnClickListener(new OnClickListener() {
-					public void onClick(View v) {
-						end("Yout Lost!!");
-					}
-				});
+				int seconds = (int) (System.currentTimeMillis() - startTime) / 1000;
+				int minutes = seconds / 60;
+				end("You Lost!!\n You survived for: " + minutes + ":"
+						+ (seconds - (minutes * 60)) + "!");
 			} else {
 				if (timeUntilGhost >= 0) {
 					timeUntilGhost -= 1;
@@ -181,7 +173,7 @@ public class Timer {
 			}
 		});
 	}
-	
+
 	public void start() {
 		mHandler.removeCallbacks(mUpdateTimeTask);
 		mHandler.postDelayed(mUpdateTimeTask, 100);
