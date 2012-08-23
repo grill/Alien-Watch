@@ -46,11 +46,6 @@ public class Field {
 
         rand = new Random();
         
-        ghosts[7].time=20;
-        ghosts[4].time=30;
-        chips[1] = C_BLUE;
-        chips[3] = C_RED;
-        
         for(int i = 0; i < C_COUNT; i++) {
             playerchips[i] = 1;
         }
