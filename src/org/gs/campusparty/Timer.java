@@ -104,7 +104,7 @@ public class Timer {
 
 					timeUntilGhost = MIN_GHOST_TIME
 							+ field.rand.nextInt(MAX_GHOST_TIME
-									- MIN_GHOST_TIME);
+									- MIN_GHOST_TIME) - field.kills*2;
 				}
 				if (timeUntilChip >= 0) {
 					timeUntilChip -= 1;
@@ -136,7 +136,7 @@ public class Timer {
 						field.chips[nchip] = field.rand.nextInt(field.C_COUNT);
 					}
 					timeUntilChip = MIN_CHIP_TIME
-							+ field.rand.nextInt(MAX_CHIP_TIME - MIN_CHIP_TIME);
+							+ field.rand.nextInt(MAX_CHIP_TIME - MIN_CHIP_TIME) + field.kills;
 				}
 
 				for (int i = 0; i < 9; i++) {

@@ -26,6 +26,7 @@ public class Ghost {
         }
         if(chiptext.length() == 0) {
             time = -1;
+            Field.getSingleton().kills += 1;
         }
         chiplabel.setText(chiptext);
         label.setTextColor(Color.RED);
