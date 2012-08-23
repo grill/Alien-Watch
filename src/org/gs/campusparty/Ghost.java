@@ -17,7 +17,6 @@ public class Ghost {
     }
     
     public void step() {
-        label.setText(Integer.toString(time));
         String chiptext = "";
         for(int i = 0; i < Field.C_COUNT; i++) {
             for(int j = 0; j < chips[i]; j++) {
@@ -31,5 +30,6 @@ public class Ghost {
         chiplabel.setText(chiptext);
         label.setTextColor(Color.RED);
         time -= 1;
+        label.setText(Integer.toString(time));
     }
 }
