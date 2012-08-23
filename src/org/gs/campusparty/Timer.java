@@ -61,7 +61,7 @@ public class Timer {
 				btnend.setText("Restart");
 				btnend.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
-						restart();
+						end("Yout Lost!!");
 					}
 				});
 			} else {
@@ -160,11 +160,21 @@ public class Timer {
 		}
 	};
 
-	public void restart() {
-		layout.removeView(txtend);
-		layout.removeView(btnend);
-		Field.init();
-		StatActivity.t.start();
+	public void end(String mes) {
+		txtend = new TextView(context);
+		layout.addView(txtend);
+		txtend.setText(mes);
+		btnend = new Button(context);
+		layout.addView(btnend);
+		btnend.setText("Restart");
+		btnend.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				layout.removeView(txtend);
+				layout.removeView(btnend);
+				Field.init();
+				StatActivity.t.start();
+			}
+		});
 	}
 	
 	public void start() {
