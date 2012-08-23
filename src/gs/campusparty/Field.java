@@ -9,6 +9,26 @@ public class Field {
     public static final int C_YELLOW = 3;
     public static final int C_COUNT = 4;
     
-    int[] chips;
-    Ghost[] ghosts;
+    public int[] chips;
+    public Ghost[] ghosts;
+    
+    public Field() {
+        chips = new int[9];
+        ghosts = new Ghost[9];
+        
+        for(int i = 0; i < 9; i++) {
+            chips[i] = C_NONE;
+            ghosts[i] = new Ghost();
+        }
+    }
+    
+    private static Field instance;
+    
+    public static Field getSingleton() {
+        if(instance != null) {
+            return instance;
+        } else {
+            return new Field();
+        }
+    }
 }
