@@ -2,6 +2,7 @@ package org.gs.campusparty;
 
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 
 public class Timer {
    private Handler mHandler = new Handler();
@@ -27,6 +28,7 @@ public class Timer {
           long millis = SystemClock.uptimeMillis();
           int nghost;
           int nchip;
+          int free = 0;
 
           //update time and textview
           for(Ghost g : field.ghosts) {
@@ -37,11 +39,27 @@ public class Timer {
           if(timeUntilGhost >= 0) {
              timeUntilGhost -= 1;
           } else {
-             nghost = field.rand.nextInt(9);
-             while(field.ghosts[nghost].time >= 0) {
-                nghost = field.rand.nextInt(9);
+              Log.w("aa", "1");
+              free = 0;
+              for(int i = 0; i < 9; i++) {
+                  if(field.ghosts[i].time < 0) {
+                      free += 1;
+                  }
+              }
+              Log.w("aa", "1");
+              
+             nghost = field.rand.nextInt(free);
+             int h = 0;
+             while(nghost > 0) {
+                 h++;
+                 while(field.ghosts[h].time >= 0) {
+                     h++;
+                 }
+                 nghost--;
              }
+             nghost = h;
              
+              Log.w("aa", "1");
              field.ghosts[nghost].time = 40;
              for(int i = 0; i < field.C_COUNT; i++) {
                  field.ghosts[nghost].chips[i] = 0;
@@ -56,8 +74,29 @@ public class Timer {
           if(timeUntilChip >= 0) {
               timeUntilChip -= 1;
           } else {
-              nchip = field.rand.nextInt(9);
+              Log.w("aa", "1");
+              free = 0;
+              for(int i = 0; i < 9; i++) {
+                  if(field.chips[i] == Field.C_NONE) {
+                      free += 1;
+                  }
+              }
+              Log.w("aa", "1");
+             nchip = field.rand.nextInt(free);
+             int h = 0;
+             while(nchip > 0) {
+                 h++;
+                 while(field.chips[h] != Field.C_NONE) {
+                     h++;
+                 }
+                 nchip--;
+             }
+             nchip = h;
+              Log.w("aa", "1");
+ 
+              field.chips[nchip] = field.rand.nextInt(field.C_COUNT);
               
+              timeUntilChip = MIN_CHIP_TIME + field.rand.nextInt(MAX_CHIP_TIME-MIN_CHIP_TIME);
           }
           
           for(int i = 0; i < 9; i++) {

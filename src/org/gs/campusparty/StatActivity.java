@@ -46,6 +46,7 @@ public class StatActivity extends Activity {
         f.ghosts[8].chiplabel = (TextView) findViewById(R.id.txtfield8chips);
        
         if(t == null) {
+            Log.w("a", "starting timer");
             Timer t = new Timer();
             t.start();
         }
