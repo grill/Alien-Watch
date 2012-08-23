@@ -31,9 +31,12 @@ public class Timer {
 
 	TextView txtend;
 	Button btnend;
+	
+	private long startTime;
 
 	public Timer() {
 		field = Field.getSingleton();
+		startTime = System.currentTimeMillis();
 	}
 
 	private Runnable mUpdateTimeTask = new Runnable() {
@@ -55,7 +58,9 @@ public class Timer {
 			if (FIELDS_UNTIL_YOU_DIE <= ghostcount) {
 				txtend = new TextView(context);
 				layout.addView(txtend);
-				txtend.setText("You Lost!!");
+				int seconds = (int)(System.currentTimeMillis() - startTime)/1000;
+				int minutes = seconds/60;
+				txtend.setText("You Lost!!\n You survived for: " + minutes + ":" + (seconds - (minutes*60)) + "!");
 				btnend = new Button(context);
 				layout.addView(btnend);
 				btnend.setText("Restart");
