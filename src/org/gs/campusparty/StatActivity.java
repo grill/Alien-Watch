@@ -17,7 +17,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 public class StatActivity extends Activity {
-    private static Timer t = null;
+    public static Timer t = null;
     
     /** Called when the activity is first created. */
     @Override
@@ -25,7 +25,7 @@ public class StatActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        Field f = Field.init(0L);
+        Field f = Field.init();
         f.ghosts[0].label = (TextView) findViewById(R.id.txtfield0time);
         f.ghosts[1].label = (TextView) findViewById(R.id.txtfield1time);
         f.ghosts[2].label = (TextView) findViewById(R.id.txtfield2time);
@@ -48,7 +48,7 @@ public class StatActivity extends Activity {
        
         if(t == null) {
             Log.w("a", "starting timer");
-            Timer t = new Timer();
+            t = new Timer();
             t.start();
         }
         
