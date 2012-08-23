@@ -20,6 +20,19 @@ public class Field {
             chips[i] = C_NONE;
             ghosts[i] = new Ghost();
         }
+        
+        ghosts[0].label = "txtfield0time";
+        ghosts[1].label = "txtfield1time";
+        ghosts[2].label = "txtfield2time";
+        ghosts[3].label = "txtfield3time";
+        ghosts[4].label = "txtfield4time";
+        ghosts[5].label = "txtfield5time";
+        ghosts[6].label = "txtfield6time";
+        ghosts[7].label = "txtfield7time";
+        ghosts[8].label = "txtfield8time";
+        
+        ghosts[7].time=20;
+        ghosts[4].time=30;
     }
     
     private static Field instance;

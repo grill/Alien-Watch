@@ -13,8 +13,14 @@ public class Timer {
           long millis = SystemClock.uptimeMillis();
 
           //update time and textview
+          for(Ghost g : Field.getSingleton().ghosts) {
+              if(g.time >= 0){ 
+                  g.label.setText(Integer.toString(g.time));
+                  g.time -= 1;
+              }
+          }
 
-          mHandler.postAtTime(this, millis + 1);
+          mHandler.postAtTime(this, millis + 1000);
       }
    };
    
