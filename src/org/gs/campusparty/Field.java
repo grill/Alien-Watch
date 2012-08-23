@@ -34,11 +34,14 @@ public class Field {
     private static Field instance;
     
     public static Field init(long seed) {
-       instance = new Field(seed);
-       return instance;
+        if(instance == null) {
+            instance = new Field(seed);
+        }
+        return instance;
+        
     }
     
     public static Field getSingleton() {
-       return instance;
+        return instance;
     }
 }
