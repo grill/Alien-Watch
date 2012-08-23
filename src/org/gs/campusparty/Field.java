@@ -58,6 +58,11 @@ public class Field {
     
     private static Field instance;
     
+    public static Field nuke() {
+        instance = new Field();
+        return instance;
+    }
+    
     public static Field init() {
         if(instance == null) {
             instance = new Field();

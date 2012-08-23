@@ -172,7 +172,7 @@ public class Timer {
 				started = false;
 				layout.removeView(txtend);
 				layout.removeView(btnend);
-				Field.init();
+				Field.nuke();
 				StatActivity.t.start();
 			}
 		});
