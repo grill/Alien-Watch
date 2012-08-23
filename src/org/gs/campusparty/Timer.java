@@ -34,6 +34,9 @@ public class Timer {
           for(Ghost g : field.ghosts) {
               if(g.time >= 0){
                   g.step();
+              } else {
+                  g.chiplabel.setText("NO GHOST");
+                  g.label.setText("");
               }
           }
           if(timeUntilGhost >= 0) {

@@ -24,6 +24,9 @@ public class Ghost {
                 chiptext += Field.names[i];
             }
         }
+        if(chiptext.length() == 0) {
+            time = -1;
+        }
         chiplabel.setText(chiptext);
         label.setTextColor(Color.RED);
         time -= 1;
