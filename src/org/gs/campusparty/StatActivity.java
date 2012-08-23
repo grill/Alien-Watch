@@ -12,7 +12,7 @@ public class StatActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        Field f = Field.getSingleton();
+        Field f = Field.init(0L);
         f.ghosts[0].label = (TextView) findViewById(R.id.txtfield0time);
         f.ghosts[1].label = (TextView) findViewById(R.id.txtfield1time);
         f.ghosts[2].label = (TextView) findViewById(R.id.txtfield2time);

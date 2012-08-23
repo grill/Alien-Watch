@@ -13,6 +13,7 @@ public class Ghost {
     }
     
     public void step() {
-       
+       label.setText(Integer.toString(time));
+       time -= 1;
     }
 }

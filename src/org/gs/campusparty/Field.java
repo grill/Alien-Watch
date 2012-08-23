@@ -1,5 +1,7 @@
 package org.gs.campusparty;
 
+import java.util.Random;
+
 
 public class Field {
     public static final int C_NONE = -1;
@@ -12,7 +14,9 @@ public class Field {
     public int[] chips;
     public Ghost[] ghosts;
     
-    public Field() {
+    public Random rand;
+    
+    public Field(long seed) {
         chips = new int[9];
         ghosts = new Ghost[9];
         
@@ -21,18 +25,20 @@ public class Field {
             ghosts[i] = new Ghost();
         }
 
+        rand = new Random(seed);
+        
         ghosts[7].time=20;
         ghosts[4].time=30;
     }
     
     private static Field instance;
     
+    public static Field init(long seed) {
+       instance = new Field(seed);
+       return instance;
+    }
+    
     public static Field getSingleton() {
-        if(instance != null) {
-            return instance;
-        } else {
-            instance = new Field();
-            return instance;
-        }
+       return instance;
     }
 }
