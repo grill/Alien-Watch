@@ -58,9 +58,19 @@ public class Field {
     
     private static Field instance;
     
-    public static Field nuke() {
-        instance = new Field();
-        return instance;
+    public void nuke() {
+        chips = new int[9];
+        for(int i = 0; i < 9; i++) {
+            chips[i] = C_NONE;
+        }
+        for(Ghost g : ghosts) {
+            g.time = -1;
+        }
+        
+        for(int i = 0; i < C_COUNT; i++) {
+            playerchips[i] = 1;
+        }
+        kills = 0;
     }
     
     public static Field init() {

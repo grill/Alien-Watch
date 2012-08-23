@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 public class Timer {
 	private Handler mHandler = new Handler();
-	private Field field;
 
 	public static final int MIN_GHOST_TIME = 20;
 	public static final int MAX_GHOST_TIME = 40;
@@ -37,11 +36,11 @@ public class Timer {
 	private boolean started = false;
 
 	public Timer() {
-		field = Field.getSingleton();
 	}
 
 	private Runnable mUpdateTimeTask = new Runnable() {
 		public void run() {
+		    Field field = Field.getSingleton();
 			long millis = SystemClock.uptimeMillis();
 			int nghost;
 			int nchip;
@@ -172,7 +171,7 @@ public class Timer {
 				started = false;
 				layout.removeView(txtend);
 				layout.removeView(btnend);
-				Field.nuke();
+				Field.getSingleton().nuke();
 				StatActivity.t.start();
 			}
 		});
@@ -181,7 +180,7 @@ public class Timer {
 	public void start() {
 		if(!started) {
 			started = true;
-			startTime = 0;
+			startTime = System.currentTimeMillis();
 			mHandler.removeCallbacks(mUpdateTimeTask);
 			mHandler.postDelayed(mUpdateTimeTask, 100);
 		}

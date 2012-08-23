@@ -57,7 +57,7 @@ public class StatActivity extends Activity {
         
 
         Intent intent = getIntent();
-        ((TextView)findViewById(R.id.txtplayerdesc)).setText(intent.getExtras() == null ? "b" : "" + intent.getExtras().size());
+        ((TextView)findViewById(R.id.txtplayerdesc)).setText(intent.getExtras() == null ? "" : "" + intent.getExtras().size());
         //intent.putExtra("FlutterTapId", "50360633ad5c85b82c74d27f");
         if (intent.hasExtra("FlutterTapId")) {
             tap(intent.getStringExtra("FlutterTapId"));
