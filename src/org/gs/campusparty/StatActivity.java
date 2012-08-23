@@ -8,8 +8,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.http.AndroidHttpClient;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -38,6 +40,10 @@ public class StatActivity extends Activity {
             Timer t = new Timer();
             t.start();
         }
+        
+
+        WifiP2pManager manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+        Connector c = new Connector(manager, manager.initialize(this, getMainLooper(), null));
         
         Intent intent = getIntent();
         ((TextView)findViewById(R.id.txtplayerdesc)).setText(intent.getExtras() == null ? "b" : "" + intent.getExtras().size());
