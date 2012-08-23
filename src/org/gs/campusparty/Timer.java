@@ -33,6 +33,8 @@ public class Timer {
 	Button btnend;
 
 	private long startTime;
+	
+	private boolean started = false;
 
 	public Timer() {
 		field = Field.getSingleton();
@@ -48,7 +50,7 @@ public class Timer {
 
 			// update time and textview
 			for (Ghost g : field.ghosts) {
-				if (g.time >= 0) {
+				if (g.time > 0) {
 					g.step();
 				} else {
 					g.chiplabel.setText("NO GHOST");
@@ -166,6 +168,7 @@ public class Timer {
 		btnend.setText("Restart");
 		btnend.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				started = false;
 				layout.removeView(txtend);
 				layout.removeView(btnend);
 				Field.init();
@@ -175,8 +178,12 @@ public class Timer {
 	}
 
 	public void start() {
-		mHandler.removeCallbacks(mUpdateTimeTask);
-		mHandler.postDelayed(mUpdateTimeTask, 100);
+		if(!started) {
+			started = true;
+			startTime = 0;
+			mHandler.removeCallbacks(mUpdateTimeTask);
+			mHandler.postDelayed(mUpdateTimeTask, 100);
+		}
 	}
 
 	public void stop() {
