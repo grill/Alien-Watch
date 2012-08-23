@@ -2,6 +2,6 @@
 <resources>
 
     <string name="hello">Hello World, StatActivity!</string>
-    <string name="app_name">Alien-Watch</string>
+    <string name="app_name">Alien Tab</string>
 
 </resources>

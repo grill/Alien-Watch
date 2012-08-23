@@ -1,4 +1,4 @@
-package gs.campusparty;
+package org.gs.campusparty;
 
 import android.widget.TextView;
 
@@ -10,5 +10,9 @@ public class Ghost {
     public Ghost() {
         time = -1;
         chips = new int[Field.C_COUNT];
+    }
+    
+    public void step() {
+       
     }
 }

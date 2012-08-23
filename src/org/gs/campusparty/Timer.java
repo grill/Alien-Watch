@@ -1,4 +1,4 @@
-package gs.campusparty;
+package org.gs.campusparty;
 
 import android.os.Handler;
 import android.os.SystemClock;

@@ -1,4 +1,4 @@
-package gs.campusparty;
+package org.gs.campusparty;
 
 
 public class Field {
