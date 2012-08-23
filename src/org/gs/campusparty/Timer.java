@@ -47,9 +47,12 @@ public class Timer {
                   }
               }
               Log.w("aa", "1");
-              
+              if(free > 0) {
              nghost = field.rand.nextInt(free);
              int h = 0;
+             while(field.ghosts[h].time >= 0) {
+                 h++;
+             }
              while(nghost > 0) {
                  h++;
                  while(field.ghosts[h].time >= 0) {
@@ -68,6 +71,7 @@ public class Timer {
              for(int i = 3 + field.rand.nextInt(3); i >= 0; i--) {
                  field.ghosts[nghost].chips[field.rand.nextInt(field.C_COUNT)] += 1;
              }
+              }
              
              timeUntilGhost = MIN_GHOST_TIME + field.rand.nextInt(MAX_GHOST_TIME-MIN_GHOST_TIME);
           }
@@ -82,8 +86,12 @@ public class Timer {
                   }
               }
               Log.w("aa", "1");
+              if(free > 0) {
              nchip = field.rand.nextInt(free);
              int h = 0;
+             while(field.chips[h] != Field.C_NONE) {
+                 h++;
+             }
              while(nchip > 0) {
                  h++;
                  while(field.chips[h] != Field.C_NONE) {
@@ -95,7 +103,7 @@ public class Timer {
               Log.w("aa", "1");
  
               field.chips[nchip] = field.rand.nextInt(field.C_COUNT);
-              
+              }
               timeUntilChip = MIN_CHIP_TIME + field.rand.nextInt(MAX_CHIP_TIME-MIN_CHIP_TIME);
           }
           
@@ -104,6 +112,13 @@ public class Timer {
              field.ghosts[i].chiplabel.setTextColor(Field.getColor(field.chips[i]));
           }
           
+        String chiptext = "";
+        for(int i = 0; i < Field.C_COUNT; i++) {
+            for(int j = 0; j < field.playerchips[i]; j++) {
+                chiptext += Field.names[i];
+            }
+        }
+        field.playerchiplabel.setText(chiptext);
 
           mHandler.postAtTime(this, millis + 1000);
       }

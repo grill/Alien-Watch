@@ -3,6 +3,7 @@ package org.gs.campusparty;
 import java.util.Random;
 
 import android.graphics.Color;
+import android.widget.TextView;
 
 
 public class Field {
@@ -26,12 +27,15 @@ public class Field {
     
     public int[] chips;
     public Ghost[] ghosts;
+    public int[] playerchips;
+    public TextView playerchiplabel;
     
     public Random rand;
     
     public Field(long seed) {
         chips = new int[9];
         ghosts = new Ghost[9];
+        playerchips = new int[C_COUNT];
         
         for(int i = 0; i < 9; i++) {
             chips[i] = C_NONE;
@@ -44,6 +48,10 @@ public class Field {
         ghosts[4].time=30;
         chips[1] = C_BLUE;
         chips[3] = C_RED;
+        
+        for(int i = 0; i < C_COUNT; i++) {
+            playerchips[i] = 1;
+        }
     }
     
     private static Field instance;
