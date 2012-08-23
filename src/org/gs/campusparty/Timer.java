@@ -146,13 +146,9 @@ public class Timer {
 							.getColor(field.chips[i]));
 				}
 
-				String chiptext = "";
-				for (int i = 0; i < Field.C_COUNT; i++) {
-					for (int j = 0; j < field.playerchips[i]; j++) {
-						chiptext += Field.names[i];
-					}
+				for(int i = 0; i < Field.C_COUNT; i++) {
+				    field.playerchiplabels[i].setText(" "+field.playerchips[i]);
 				}
-				field.playerchiplabel.setText(chiptext);
 
 				mHandler.postAtTime(this, millis + 1000);
 			}

@@ -28,7 +28,7 @@ public class Field {
     public int[] chips;
     public Ghost[] ghosts;
     public int[] playerchips;
-    public TextView playerchiplabel;
+    public TextView[] playerchiplabels;
     public int kills;
     
     public Random rand;
@@ -37,6 +37,7 @@ public class Field {
         chips = new int[9];
         ghosts = new Ghost[9];
         playerchips = new int[C_COUNT];
+        playerchiplabels = new TextView[C_COUNT];
         kills = 0;
         
         for(int i = 0; i < 9; i++) {

@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.http.AndroidHttpClient;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
@@ -45,7 +46,16 @@ public class StatActivity extends Activity {
         f.ghosts[6].chiplabel = (TextView) findViewById(R.id.txtfield6chips);
         f.ghosts[7].chiplabel = (TextView) findViewById(R.id.txtfield7chips);
         f.ghosts[8].chiplabel = (TextView) findViewById(R.id.txtfield8chips);
-        f.playerchiplabel = (TextView) findViewById(R.id.txtplayerchips);
+        f.playerchiplabels[f.C_RED] = (TextView) findViewById(R.id.txtred);
+        f.playerchiplabels[f.C_BLUE] = (TextView) findViewById(R.id.txtblue);
+        f.playerchiplabels[f.C_GREEN] = (TextView) findViewById(R.id.txtgreen);
+        f.playerchiplabels[f.C_YELLOW] = (TextView) findViewById(R.id.txtyellow);
+        
+        
+        for(int i = 0; i < Field.C_COUNT; i++) {
+            f.playerchiplabels[i].setTextColor(Color.WHITE);
+        }
+        f.playerchiplabels[Field.C_YELLOW].setTextColor(Color.BLACK);
        
         if(t == null) {
             Log.w("a", "starting timer");
