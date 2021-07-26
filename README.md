@@ -8,4 +8,4 @@ Survive as long as possible.
 
 How to play:
 
-When a ghost apears on the screen a timer starts and goes to zero. If 3 timers are simultaneously set to zero you have lost the game. To exorcise ghosts you have touch their tag and have the right amount of Resources in your bag. Your bag is displayed in the right corner on the top of the screen and contains a certain amount of red, blue, yellow and green resources. You can pick up resources by touching the tag of a coloured field. 
+When a ghost apears on screen a timer starts and goes to zero. If 3 timers reach simultaneously zero, you have lost the game. In order to exorcise ghosts, you have to click on the correct are on the screen and have enough resources in your bag. Your inventory bag is displayed in the right top corner of the screen and shows red, blue, yellow and green resources. You can pick up resources by clicking on coloured fields.
